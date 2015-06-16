@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49B204C9-ED6C-4AA5-BD1F-68B3D3565B0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fastworks</RootNamespace>
+    <AssemblyName>Fastworks</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Bus\BusException.cs" />
+    <Compile Include="Bus\DispatchingException.cs" />
+    <Compile Include="Bus\IBus.cs" />
+    <Compile Include="Bus\ICommandBus.cs" />
+    <Compile Include="Bus\IEventBus.cs" />
+    <Compile Include="Bus\IMessageDispatcher.cs" />
+    <Compile Include="Bus\MessageDispatcher.cs" />
+    <Compile Include="Bus\MessageDispatchEventArgs.cs" />
+    <Compile Include="Bus\RegisterDispatchAttribute.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DisposableObject.cs" />
+    <Compile Include="DomainException.cs" />
+    <Compile Include="Events\HandlesAttribute.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Events\IDomainEventHandler.cs" />
+    <Compile Include="Events\IEvent.cs" />
+    <Compile Include="Events\IEventHandler.cs" />
+    <Compile Include="Events\Serialization\DomainEventBinarySerializer.cs" />
+    <Compile Include="Events\Serialization\DomainEventDataContractSerializer.cs" />
+    <Compile Include="Events\Serialization\DomainEventJsonSerializer.cs" />
+    <Compile Include="Events\Serialization\DomainEventXmlSerializer.cs" />
+    <Compile Include="Events\Serialization\IDomainEventSerializer.cs" />
+    <Compile Include="Events\Storage\DomainEventDataObject.cs" />
+    <Compile Include="Events\Storage\IDomainEventStorage.cs" />
+    <Compile Include="Events\Storage\RdbmsDomainEventStorage.cs" />
+    <Compile Include="FastworksException.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="IHandler.cs" />
+    <Compile Include="InfrastructureException.cs" />
+    <Compile Include="IObjectContainer.cs" />
+    <Compile Include="IServiceLocator.cs" />
+    <Compile Include="ISourcedAggregateRoot.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="ObjectContainer.cs" />
+    <Compile Include="PagedResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DomainRepository.cs" />
+    <Compile Include="Repositories\EventPublisherDomainRepository.cs" />
+    <Compile Include="Repositories\EventSourcedDomainRepository.cs" />
+    <Compile Include="Repositories\IDomainRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IRepositoryContext .cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\RegularDomainRepository.cs" />
+    <Compile Include="Repositories\RegularEventPublisherDomainRepository.cs" />
+    <Compile Include="Repositories\RepositoryContext.cs" />
+    <Compile Include="Repositories\RepositoryException.cs" />
+    <Compile Include="Repositories\SnapshotDomainRepository.cs" />
+    <Compile Include="Repositories\SortByExtension.cs" />
+    <Compile Include="Serialization\IObjectSerializer.cs" />
+    <Compile Include="Serialization\ObjectBinarySerializer.cs" />
+    <Compile Include="Serialization\ObjectDataContractSerializer.cs" />
+    <Compile Include="Serialization\ObjectJsonSerializer.cs" />
+    <Compile Include="Serialization\ObjectXmlSerializer.cs" />
+    <Compile Include="Serialization\SerializationException.cs" />
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="Services\ApplicationServices\DataTransferObject.cs" />
+    <Compile Include="Snapshots\ISnapshot.cs" />
+    <Compile Include="Snapshots\ISnapshotOrignator.cs" />
+    <Compile Include="Snapshots\Providers\EventNumberSnapshotProvider.cs" />
+    <Compile Include="Snapshots\Providers\ISnapshotProvider.cs" />
+    <Compile Include="Snapshots\Providers\SnapshotProvider.cs" />
+    <Compile Include="Snapshots\Providers\SnapshotProviderOption.cs" />
+    <Compile Include="Snapshots\Providers\StorageBasedSnapshotProvider.cs" />
+    <Compile Include="Snapshots\Serialization\ISnapshotSerializer.cs" />
+    <Compile Include="Snapshots\Serialization\SnapshotBinarySerializer.cs" />
+    <Compile Include="Snapshots\Serialization\SnapshotDataContractSerializer.cs" />
+    <Compile Include="Snapshots\Serialization\SnapshotJsonSerializer.cs" />
+    <Compile Include="Snapshots\Serialization\SnapshotXmlSerializer.cs" />
+    <Compile Include="Snapshots\Snapshot.cs" />
+    <Compile Include="Snapshots\SnapshotDataObject.cs" />
+    <Compile Include="SourcedAggregateRoot.cs" />
+    <Compile Include="Specifications\AnySpecification.cs" />
+    <Compile Include="Specifications\ExpressionSpecification.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
+    <Compile Include="Specifications\ParameterReplacer.cs" />
+    <Compile Include="Specifications\SpecExprExtensions.cs" />
+    <Compile Include="Specifications\Specification.cs" />
+    <Compile Include="Storage\Builders\IWhereClauseBuilder.cs" />
+    <Compile Include="Storage\Builders\WhereClauseBuilder.cs" />
+    <Compile Include="Storage\Builders\WhereClauseBuildResult.cs" />
+    <Compile Include="Storage\IStorage.cs" />
+    <Compile Include="Storage\IStorageMappingResolver.cs" />
+    <Compile Include="Storage\PropertyBag.cs" />
+    <Compile Include="Storage\RdbmsStorage.cs" />
+    <Compile Include="Storage\SortOrder.cs" />
+    <Compile Include="Storage\StorageException.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interception\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
